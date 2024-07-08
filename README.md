@@ -65,12 +65,14 @@ Request token: abc123; Result token: abc123
 Request token: abc456; Result token: abc123
 ```
 
-As you can see, since the first request takes longer than the second one, the context gets overwritten before it has time to resolve.  The context in the current setup is essentially just a shared property that continuously gets overwritten by incoming requests.  
-By scoping the API classes per-request, the results are correct:
+Even though the request with token `abc456` started before the request with token `abc123`, we received that request's token in response.  This happens because the context in the current setup is essentially just a shared property that continuously gets overwritten by incoming requests.  This means if your request performs any operations before trying to access the current context, it's highly likely that the context has been overwritten, especially in busier environments such as production.
+
+By scoping the API classes per-request, the results are as expected:
 
 ```
 Request token: abc123; Result token: abc123
 Request token: abc456; Result token: abc456
 ```
+
 
 
