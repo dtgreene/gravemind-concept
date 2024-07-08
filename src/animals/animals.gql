@@ -1,0 +1,13 @@
+extend type Query {
+  animals: [Animal!]!
+  animalsAndPokemon: AnimalsAndPokemonResponse
+}
+
+type AnimalsAndPokemonResponse {
+  animals: [Animal!]!
+  pokemon: [Pokemon!]!
+}
+
+type Animal {
+  name: String!
+}

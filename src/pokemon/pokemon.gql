@@ -1,0 +1,8 @@
+extend type Query {
+  pokemon: [Pokemon!]!
+}
+
+type Pokemon {
+  name: String!
+  url: String!
+}

@@ -1,0 +1,52 @@
+type Animal {
+  name: String!
+}
+
+type AnimalsAndPokemonResponse {
+  animals: [Animal!]!
+  pokemon: [Pokemon!]!
+}
+
+scalar Date
+
+scalar JSONObject
+
+type Mutation {
+  do: Sample!
+}
+
+type Pokemon {
+  name: String!
+  url: String!
+}
+
+type Query {
+  animals: [Animal!]!
+  animalsAndPokemon: AnimalsAndPokemonResponse
+  pokemon: [Pokemon!]!
+  sample: Sample!
+  token: String
+  tokenLong: String
+}
+
+type SNSMessage {
+  message: String
+  messageId: String
+  signature: String
+  signatureVersion: String
+  signingCertUrl: String
+  subject: String
+  timestamp: String
+  topicArn: String
+  type: String
+  unsubscribeUrl: String
+}
+
+type Sample {
+  id: ID!
+  name: String!
+  now: Date!
+  test: String
+}
+
+scalar Upload
